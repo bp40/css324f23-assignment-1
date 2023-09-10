@@ -49,6 +49,19 @@ def h1(s):
     return res
 
 def h3(s):
-    # implement this function
     board, _, _ = s
-    return 0
+    total = 0
+
+    for index, num in enumerate(board):
+        if num != 0:
+            correct_row, correct_col = divmod(num-1, 3)
+            current_row, current_col = divmod(index, 3)
+
+            if current_row != correct_row:
+                total += 1 
+            if current_col != correct_col:
+                total += 1 
+
+    return total
+
+
